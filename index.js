@@ -5,7 +5,7 @@ require("dotenv").config();
 let privateKey = fs.readFileSync(process.env.privateKeyPath);
 let teamId = process.env.teamId;
 let clientId = process.env.clientId;
-let keyId = process.env.teamId;
+let keyId = process.env.keyId;
 let validDays = 180; // In days. Max 180 (6 months) according to Apple docs.
 
 let token = jwt.sign(
@@ -25,4 +25,4 @@ let token = jwt.sign(
   }
 );
 
-fs.writeFile(__dirname + "/clientSecret", token, () => {});
+fs.writeFile(__dirname + "/client_secret.txt", token, () => {});
